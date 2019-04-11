@@ -12,12 +12,12 @@
  * @a: arg pointer
  * Return : Void
 **/
-void loop(char **a)
+void loop(char **a, char *envp[])
 {
-char *buffer, *token, *argumts[1024], delimit[] =" \t\r\n\v\f", *path = "/bin/";
-size_t bufsize = 32;
-const char *proname = a[0];
-int countargt = 1;
+	char *buffer, *token, *argumts[1024], delimit[] =" \t\r\n\v\f";
+	size_t bufsize = 32;
+	const char *proname = a[0];
+	int countargt = 1;
 
         signal(SIGINT, SIG_IGN);
         while (stdin)
@@ -46,7 +46,7 @@ int countargt = 1;
                                 argumts[countargt] = token;
                                 countargt++;
                         }
-                checker(buffer, proname, path, argumts);
+                checker(buffer, proname, envp, argumts);
                 }
                 else
                 {

@@ -8,12 +8,16 @@
 #include <dirent.h>
 #include "header.h"
 /**
-* main - Main fuction
-*
-*
-**/
-int main(__attribute__((unused))int ac, char **av, char *envp[])
+ * print_env - print env vars
+ * @envp: array var env.
+ * Return : Void
+ **/
+void print_env(char *envp[])
 {
-	loop(av, envp);
-	return 0;
+	int i;
+
+	for (i = 0; envp[i] != NULL; i++)
+	{
+		printf("%s\n", envp[i]);
+	}
 }

@@ -15,7 +15,7 @@
  * @a: args pointer
  * Return : Void
 **/
-void checker(char *buffer, const char *proname, char *path, char **a)
+void checker(char *buffer, const char *proname, char *envp[], char **a)
 {
         char *pathexc;
         int status;
@@ -25,12 +25,14 @@ void checker(char *buffer, const char *proname, char *path, char **a)
                 a[1] != NULL ? free(buffer), _exit(_atoi(a[1])): free(buffer), _exit(0);
         else if (!_strcmp(a[0], "cd"))
                 a[1] != NULL ? chdir(a[1]): chdir("~"), free(buffer);
+	else if (!_strcmp(a[0], "env") && a[1] == NULL)
+		print_env(envp), free(buffer);
         else
         {
                 child = fork();
                 if (child == 0)
                 {
-                        pathexc = str_concat(path, a[0]);
+                        pathexc = comparecmd(a[0],envp);
                         if (execve(pathexc,a,NULL) == -1)
                         {
                                 perror(proname);
