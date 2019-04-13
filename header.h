@@ -7,4 +7,5 @@ int _strcmp(char *s1, char *s2);
 int _atoi(char *str);
 char *comparecmd(char *str, char *envp[]);
 void print_env(char *envp[]);
+char *getpath(char param[], char *envp[]);
 #endif

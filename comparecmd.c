@@ -18,15 +18,10 @@ char *comparecmd(char *str, char * envp[])
 	char *listpaths = NULL;
 	char *conct2 = NULL;
 	int i;
+	char *strtmp;
 	struct stat buf;
-	/*conct = str_concat(binnm,str);
-	  printf("(%s)\n",conct);*/
-	if(stat(str,&buf) == 0)
-	{
-		printf("found, returning same.\n");
-		return str;
-	}
-	str = str_concat("/",str);
+
+	strtmp = str_concat("/",str);
 	    for (i = 0; envp[i] != NULL; i++)
 	    {
 		    envpath = strtok( envp[i], delim2 );
@@ -36,20 +31,25 @@ char *comparecmd(char *str, char * envp[])
 				    envpath = strtok( NULL, delim2);
 				    listpaths = strtok( envpath, delim1);
 				    while( listpaths != NULL ) {
-					    /*str = str_concat("/",str);*/
-					    conct2 = str_concat(listpaths,str);
+					    conct2 = str_concat(listpaths,strtmp);
 					    if(stat(conct2,&buf) == 0)
 					    {
-						    /*printf("FOUND in builints :%s\n", conct2);*/
 						    return conct2;
 					    }
-					    printf("%s\n", listpaths);
 					    listpaths = strtok( NULL, delim1);
+					    free(conct2);
 				    }
 				    break;
 			    }
 			    envpath = strtok( NULL, delim2);
 		    }
 	    }
-	    return (NULL);
+	    if(stat(str,&buf) == 0)
+	    {
+		    free(strtmp);
+		    /*printf("found, returning same.\n");*/
+		    return str;
+	    }
+	    free(strtmp);
+	    return (str);
 }

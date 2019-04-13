@@ -14,13 +14,13 @@
 **/
 void loop(char **a, char *envp[])
 {
-	char *buffer, *token, *argumts[1024], delimit[] =" \t\r\n\v\f";
+	char *buffer;
+	char *token, *argumts[1024], delimit[] =" \t\r\n\v\f";
 	size_t bufsize = 32;
 	const char *proname = a[0];
 	int countargt = 1;
-
-        signal(SIGINT, SIG_IGN);
-        while (stdin)
+	signal(SIGINT, SIG_IGN);
+	while (stdin)
         {
                 buffer = (char *)malloc(bufsize * sizeof(char));
                 if (buffer == NULL)
@@ -29,7 +29,10 @@ void loop(char **a, char *envp[])
                         exit(1);
                 }
                 countargt = 1;
-                printf("$ ");
+		if(isatty(0))
+		{
+			printf("$ ");
+		}
                 if (getline(&buffer, &bufsize, stdin) != EOF)
                 {
 
