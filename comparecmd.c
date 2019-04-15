@@ -9,7 +9,7 @@
 #include <sys/stat.h>
 #include "header.h"
 
-char *comparecmd(char *str, char * envp[])
+char *comparecmd(char *str, char *envp[])
 {
 	char delim1[] = ":";
 	char delim2[] = "=";
@@ -20,11 +20,13 @@ char *comparecmd(char *str, char * envp[])
 	int i;
 	char *strtmp;
 	struct stat buf;
+	char *envtmp1 = NULL;
 
 	strtmp = str_concat("/",str);
-	    for (i = 0; envp[i] != NULL; i++)
+	for (i = 0; envp[i] != NULL; i++)
 	    {
-		    envpath = strtok( envp[i], delim2 );
+		    envtmp1 = _strdup(envp[i]);
+		    envpath = strtok(envtmp1, delim2);
 		    while( envpath != NULL ) {
 			    if(_strcmp(envpath,nmpath) == 0)
 			    {
@@ -34,6 +36,7 @@ char *comparecmd(char *str, char * envp[])
 					    conct2 = str_concat(listpaths,strtmp);
 					    if(stat(conct2,&buf) == 0)
 					    {
+						    /*free(envtmp1);*/
 						    return conct2;
 					    }
 					    listpaths = strtok( NULL, delim1);
@@ -43,13 +46,16 @@ char *comparecmd(char *str, char * envp[])
 			    }
 			    envpath = strtok( NULL, delim2);
 		    }
+		    free(envtmp1);
 	    }
 	    if(stat(str,&buf) == 0)
 	    {
+		    /*free(envtmp);*/
 		    free(strtmp);
 		    /*printf("found, returning same.\n");*/
 		    return str;
 	    }
+	    /*free(envtmp);*/
 	    free(strtmp);
 	    return (str);
 }

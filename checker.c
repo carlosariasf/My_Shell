@@ -31,16 +31,16 @@ void checker(char *buffer, const char *proname, char *envp[], char **a)
 		}
 		else if (a[1] == NULL)
 		{
-			printf("(%s)\n",getpath("HOME",envp));
+			/*printf("(%s)\n",getpath("HOME",envp));*/
 			chdir(getpath("HOME",envp));
 		}
 		else if (!_strcmp(a[1], "-"))
 		{
-			printf("(%s)\n",getpath("OLDPWD",envp));
+			/*printf("(%s)\n",getpath("OLDPWD",envp));*/
 			chdir(getpath("OLDPWD",envp));
 		}
 		free(buffer);
-	}
+		}
 	else if (!_strcmp(a[0], "env") && a[1] == NULL)
 		print_env(envp), free(buffer);
         else

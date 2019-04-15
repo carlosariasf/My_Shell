@@ -8,4 +8,5 @@ int _atoi(char *str);
 char *comparecmd(char *str, char *envp[]);
 void print_env(char *envp[]);
 char *getpath(char param[], char *envp[]);
+char *_strdup(char *str);
 #endif

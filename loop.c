@@ -14,8 +14,7 @@
 **/
 void loop(char **a, char *envp[])
 {
-	char *buffer;
-	char *token, *argumts[1024], delimit[] =" \t\r\n\v\f";
+	char *buffer, *token, *argumts[1024], delimit[] =" \t\r\n\v\f";
 	size_t bufsize = 32;
 	const char *proname = a[0];
 	int countargt = 1;
