@@ -27,15 +27,15 @@ char *getpath(char param[], char *envp[])
 		while(envpath != NULL) {
 			if(_strcmp(envpath,param) == 0)
 			{
-				printf("ENCONTRo otro =\n");
+				/*printf("ENCONTRo otro =\n");*/
 				envpath = strtok(NULL, delim2);
-				printf("Dir a lib FOUND! strdup: %p\n", &envtmp);
+				/*printf("Dir a lib FOUND! strdup: %p\n", &envtmp);*/
 				free(envtmp);
 				return(envpath);
 			}
 			envpath = strtok( NULL, delim2);
 		}
-		printf("Dir a lib strdup: %p\n", &envtmp);
+		/*printf("Dir a lib strdup: %p\n", &envtmp);*/
 		free(envtmp);
 	}
 	/*free(envtmp);*/

@@ -29,6 +29,6 @@ char *_strdup(char *str)
 		return (p);
 	for (; j < i; j++)
 		p[j] = str[j];
-	printf("Dir strdup insd: %p\n", &p);
+	/*printf("Dir strdup insd: %p\n", &p);*/
 	return (p);
 }
