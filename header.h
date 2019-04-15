@@ -7,6 +7,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <dirent.h>
 void checker(char *buf, const char *proname, char *envp[], char **a);
 void loop(char **a, char *envp[]);
