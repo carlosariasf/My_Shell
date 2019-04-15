@@ -17,6 +17,6 @@ void my_exit(char *buf, char **a)
 	else
 	{
 		free(buf);
-		_exit(0);
+		exit(0);
 	}
 }
