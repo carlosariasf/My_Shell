@@ -6,7 +6,8 @@ interface for Unix-like operating systems. The shell is both an interactive comm
 language and a scripting language, and is used by the operating system to control 
 the execution of the system using shell scripts.
 .SH SYNOPSIS
-- main function is: int main(__attribute__((unused))int ac, char **av, char *envp[]);
+- Basically, this is the syntax used to run the program.
+shell_command [optional parameters]
 -----
 .SH DESCRIPTION
 - This simple shell project develop by Carlos Arias and Javier Bonilla emulate

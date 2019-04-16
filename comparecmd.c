@@ -13,6 +13,8 @@ char *comparecmd(char *str, char *envp[])
 	char *strtmp, *envtmp1 = NULL;
 	struct stat buf;
 
+	if (str == NULL)
+	{}
 	strtmp = str_concat("/", str);
 	for (i = 0; envp[i] != NULL; i++)
 	{
@@ -34,17 +36,14 @@ char *comparecmd(char *str, char *envp[])
 					listpaths = strtok(NULL, delim1);
 					free(conct2);
 				}
-				break;
 			}
 			envpath = strtok(NULL, delim2);
 		}
 		free(envtmp1);
 	}
 	if (stat(str, &buf) == 0)
-	{
-		free(strtmp);
-		return (str);
-	}
+	{ free(strtmp);
+		return (str); }
 	free(strtmp);
 	return (str);
 }
