@@ -33,25 +33,24 @@ $ cd simple_shell/
 ```sh
  $ gcc -Wall -Werror -Wextra -pedantic *.c -o shell
 ```
-```
 - Execute the Simple Shell program.
 ```sh
 $ ./shell
 ```
-READY TO USE, and ACCEPT COMMANDS LISTED IN THE MANUAL.
+### READY TO USE, and ACCEPT COMMANDS LISTED IN THE MANUAL.
 
 
 ### Files
 
 A short description of every file used in this project.
 
-| File Name | Description   |
+| File Name | Description                                          |
 
-|---- | ------------ |
+|--------------------- | ----------------------------------------- |
 
-| **AUTHORS**  | file containing the **contributing authors**    |
+| `AUTHORS`  | file containing the **contributing authors**    |
 
-| **README.md**  | readme file explainig wht this project is about  |
+| `README.md`  | readme file explainig wht this project is about  |
 
 | `1-strdup.c`  | function to duplicate string |
 
@@ -78,3 +77,7 @@ A short description of every file used in this project.
 | `print_env.c` | function that print the environment variables |
 
 | `simple_shell.c` | main of the program |
+
+AUTHORS:
+Javier Bonilla
+Carlos Arias
