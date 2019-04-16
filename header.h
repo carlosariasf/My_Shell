@@ -20,4 +20,6 @@ char *getpath(char param[], char *envp[]);
 void _cd(char **a, char *envp[]);
 void my_exit(char *buf, char **a);
 char *_strdup(char *str);
+char *_read_line(void);
+int _strlen(char *s);
 #endif

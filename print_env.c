@@ -15,9 +15,12 @@
 void print_env(char *envp[])
 {
 	int i;
+	int lenght;
 
 	for (i = 0; envp[i] != NULL; i++)
 	{
-		printf("%s\n", envp[i]);
+		lenght = _strlen(envp[i]);
+		write(1, envp[i], lenght);
+		write(1, "\n", 1);
 	}
 }
