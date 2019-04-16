@@ -17,9 +17,28 @@ manages the technical details of the operating system kernel interface, which is
 the lowest-level, or inner-most component of most operating systems.
 
 
-## Installation
+## Installation/How to Use.
 
 You need to have an Ubuntu Trusty .
+### Quick Start
+ - git clone this repository to your machine.
+ ```sh
+ $ git clone https://github.com/carlosariasf/simple_shell.git
+ ```
+ - `cd` into `simple_shell/` directory.
+```sh
+$ cd simple_shell/
+```
+ - Compile the program.
+```sh
+ $ gcc -Wall -Werror -Wextra -pedantic *.c -o shell
+```
+```
+- Execute the Simple Shell program.
+```sh
+$ ./shell
+```
+READY TO USE, and ACCEPT COMMANDS LISTED IN THE MANUAL.
 
 
 ### Files
