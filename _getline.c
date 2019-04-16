@@ -1,8 +1,8 @@
 #define LSH_RL_BUFSIZE 1024
 #include "header.h"
 /**
- * _read_line - own readline function
- * Return : char
+ * *_read_line - own readline function
+ * Return: char
  **/
 char *_read_line(void)
 {
@@ -11,29 +11,33 @@ char *_read_line(void)
 	char *buffer = malloc(sizeof(char) * bufsize);
 	int c;
 
-	if (!buffer) {
+	if (!buffer)
+	{
 		fprintf(stderr, "lsh: allocation error\n");
 		exit(EXIT_FAILURE);
 	}
 
-	while (1) {
-		// Read a character
+	while (1)
+	{
 		c = getchar();
 
-		// If we hit EOF, replace it with a null character and return.
-		if (c == EOF || c == '\n') {
+		if (c == EOF || c == '\n')
+		{
 			buffer[position] = '\0';
-			return buffer;
-		} else {
+			return (buffer);
+		}
+		else
+		{
 			buffer[position] = c;
 		}
 		position++;
 
-		// If we have exceeded the buffer, reallocate.
-		if (position >= bufsize) {
+		if (position >= bufsize)
+		{
 			bufsize += LSH_RL_BUFSIZE;
 			buffer = realloc(buffer, bufsize);
-			if (!buffer) {
+			if (!buffer)
+			{
 				fprintf(stderr, "lsh: allocation error\n");
 				exit(EXIT_FAILURE);
 			}
