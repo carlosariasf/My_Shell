@@ -1,0 +1,111 @@
+.TH SIMPLE_SHELL 1 "4 April 2019" "1.0" "User Commands"
+.SH NAME
+.B SIMPLE SHELL
+- A shell is a command-line interpreter or shell that provides a command line user 
+interface for Unix-like operating systems. The shell is both an interactive command 
+language and a scripting language, and is used by the operating system to control 
+the execution of the system using shell scripts.
+.SH SYNOPSIS
+- main function is: int main(__attribute__((unused))int ac, char **av, char *envp[]);
+-----
+.SH DESCRIPTION
+- This simple shell project develop by Carlos Arias and Javier Bonilla emulate
+the behavior of the original shell, receiving some basic and advanced commands, and their 
+parameters.
+
+.SH OVERVIEW
+- A team project develop by students of Holberton School, for educational purposes.
+Where each student puts into practice all the tools that have been shown in this 
+first quarter.
+Ours simple shell follows the same structure of the original shell program, where
+is documented in the manual sh.
+The simple shell reads input in terms of lines from a file and breaks it up into 
+words at whitespace (blanks and tabs), and at certain sequences of characters
+that are special to the shell called "operators".
+.SH Search and Execution
+ There are three types of commands: shell functions, builtin commands, and normal 
+programs; They each are executed in a different way.
+.SH Path Search
+When locating a command, the shell first looks to see if it has a shell function 
+by that name.  Then it looks for a builtin command by that name.  If a builtin
+command is not found, one of two things happen:
+1. Command names containing a slash are simply executed without performing any
+searches.
+2. The shell searches each entry in PATH in turn for the command.  The value of the
+PATH variable should be a series of entries separated by colons.  Each entry consists 
+of a directory name.  The current directory may be indicated implicitly by an
+empty directory name, or explicitly by a single period.
+.SH RETURN VALUE
+The simple shell returns a error given by the last run command, also either
+ctrl-d or exit.
+
+.SH SYNTAX
+<command> <flags>
+.SS
+OR NON-INTERACTIVE MODE:
+$ echo "<command>" | ./val
+
+.SS Interactive mode:
+
+
+.SS
+EXAMPLES:
+.SS
+ls command:
+ls -1
+.SS
+pwd command:
+pwd
+.SS
+cd command:
+cd ..
+.SS
+help command:
+help <builtin command name>
+.SS
+# comments
+echo Im a Fish # Dog
+Im a Fish
+.SH BUILTIN COMMANDS
+The Shell supports this builtin commands:
+
+.SS exit
+- exits the Shell
+
+.SS env
+- prints the environment variables.
+
+.SS setenv
+- sets an environment variable.
+
+.SS unsetenv
+- unsets an environment variable.
+
+.SS cd
+- changes directory.
+
+.SS help
+- displays help for builtin commands.
+
+.SH SEE ALSO
+BASH(1)
+
+.SH BUGS
+a bit.
+
+.SH Command Exit Status
+Each command has an exit status that can influence the behaviour of other shell
+commands.
+The paradigm is that a command exits with zero for normal or success, and non-zero 
+for failure, error, or a false indication.  The man page for each command should 
+indicate the various exit codes and what they mean.  Additionally, the builtin
+commands return exit codes, as does an executed shell function.
+
+.SH AUTHORS
+Carlos Arias
+    carlos-eduardo.arias-fernandez@holbertonschool.com
+    https://github.com/carlosariasf
+
+Javier Bonilla
+    731@holbertonschool.com
+    https://github.com/javb92
